@@ -141,7 +141,8 @@ def chat():
                 "• Catat semua transaksi harian, termasuk pengeluaran kecil\n"
                 "• Pisahkan rekening pribadi dan usaha\n"
                 "• Gunakan aplikasi seperti BukuKas biar tidak ribet\n"
-                "Tetap semangat, usaha Mas pasti makin maju! 💪💡"
+                "Tetap semangat, usaha Mas pasti makin maju! 💪💡\n"
+                "Jangan sebut AI, Kolosal, atau Claude. Fokus bantu UMKM."
             )
 
             user_content = [{"type": "text", "text": user_message or "Analisis data yang dikirim."}]
@@ -150,14 +151,14 @@ def chat():
             elif context_data['type'] == 'image':
                 user_content.append({
                     "type": "image_url",
-                    "image_url": {"url": f"image/jpeg;base64,{context_data['content']}"}
+                    "image_url": {"url": f"data:image/jpeg;base64,{context_data['content']}"}
                 })
             elif context_data['type'] == 'video_frames':
-                user_content.append({"type": "text", "text": "Berikut frame dari video toko Anda:"})
+                user_content.append({"type": "text", "text": "Berikut frame dari video Anda:"})
                 for frame in context_data['content']:
                     user_content.append({
                         "type": "image_url",
-                        "image_url": {"url": f"image/jpeg;base64,{frame}"}
+                        "image_url": {"url": f"data:image/jpeg;base64,{frame}"}
                     })
 
             response = ai_client.chat.completions.create(
