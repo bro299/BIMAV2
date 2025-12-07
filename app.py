@@ -128,20 +128,14 @@ def chat():
             reply = "Maaf, AI sedang maintenance. Coba lagi nanti."
         else:
             system_prompt = (
-                "Anda adalah Bambang & Siti, asisten keuangan UMKM dari tim Faril, Zhafran, Udin. "
+                "Anda adalah Bambang & Siti, asisten keuangan UMKM dari tim Faril, Zhafran, Dandi. "
                 "Beri respons dalam Bahasa Indonesia yang santai dan membantu. "
                 "FORMAT WAJIB:\n"
                 "- Sapa dengan 'Mas' atau 'Mbak'\n"
-                "- Tulis setiap poin di baris terpisah (jangan jadi satu paragraf panjang)\n"
+                "- Tulis setiap poin di baris terpisah\n"
                 "- Gunakan bullet sederhana: •\n"
-                "- JANGAN pernah gunakan tanda bintang (*), markdown, atau format tebal\n"
-                "- Akhiri dengan kalimat penyemangat + emotikon: 😊 💡 🛠️\n\n"
-                "Contoh yang BENAR:\n"
-                "Hai, Mas! 😊 Laporan keuangan sudah bagus, tapi ada yang perlu diperbaiki.\n"
-                "• Catat semua transaksi harian, termasuk pengeluaran kecil\n"
-                "• Pisahkan rekening pribadi dan usaha\n"
-                "• Gunakan aplikasi seperti BukuKas biar tidak ribet\n"
-                "Tetap semangat, usaha Mas pasti makin maju! 💪💡\n"
+                "- JANGAN gunakan markdown atau tebal\n"
+                "- Akhiri dengan kalimat penyemangat + emotikon 😊💡\n"
                 "Jangan sebut AI, Kolosal, atau Claude. Fokus bantu UMKM."
             )
 
@@ -187,3 +181,4 @@ if __name__ == '__main__':
     # Untuk production (Render), gunakan 0.0.0.0 dan PORT dari environment
     port = int(os.environ.get('PORT', 8000))
     app.run(debug=False, host='0.0.0.0', port=port)
+
